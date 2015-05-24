@@ -55,10 +55,10 @@ X_train = X_train[,grep("mean|std",colnames(X_train),perl = T,ignore.case = F)]
 Tidy_test_set = cbind(Sub_test,Y_test,X_test)
 Tidy_train_set = cbind(Sub_train,Y_train,X_train)
 
-# Combine the test and train tidy data set
+# Combine the test and train tidy data set-Question 1
 Combine_Train_Test_tidy = rbind(Tidy_train_set,Tidy_test_set)
 
-#independent tidy data set with the average of each variable for each activity and each subject
+#independent tidy data set with the average of each variable for each activity and each subject-Last part
 Tidy_Data = aggregate(.~Subject_Num+Activity,Combine_Train_Test_tidy,FUN = mean)
 write.xlsx(x = Tidy_Data,file = "Tidy_dataset_UCIHAR.xlsx",sheetName = Tidy_Data,row.names = F)
 
