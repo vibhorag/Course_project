@@ -60,6 +60,7 @@ Combine_Train_Test_tidy = rbind(Tidy_train_set,Tidy_test_set)
 
 #independent tidy data set with the average of each variable for each activity and each subject-Last part
 Tidy_Data = aggregate(.~Subject_Num+Activity,Combine_Train_Test_tidy,FUN = mean)
+write.table(Tidy_Data,"Tidy_dataset_UCIHAR.txt", sep = "\t",row.names = F,quote=F)
 write.xlsx(x = Tidy_Data,file = "Tidy_dataset_UCIHAR.xlsx",sheetName = Tidy_Data,row.names = F)
 
 
